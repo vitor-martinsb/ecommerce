@@ -1,0 +1,98 @@
+Table customers {
+  customer_number integer [primary key]
+  customer_name varchar
+  contact_last_name varchar
+  contact_first_name varchar
+  phone varchar
+  address_line1 varchar
+  address_line2 varchar
+  city varchar
+  state varchar
+  postal_code varchar
+  country varchar
+  sales_rep_employee_number float
+  credit_limit float
+}
+
+Table employees {
+  employee_number integer [primary key]
+  last_name varchar
+  first_name varchar
+  extension varchar
+  email varchar
+  office_code varchar
+  reports_to float
+  job_Title varchar
+}
+
+Table offices {
+  office_code varchar [primary key]
+  city varchar
+  phone varchar
+  address_line1 varchar
+  address_line2 varchar
+  state varchar
+  country varchar
+  postal_code varchar
+  territory varchar
+}
+
+Table orderdetails {
+  order_number integer [primary key]
+  product_code varchar
+  quantity_ordered integer
+  price_each float
+  order_line_number integer
+}
+
+Table orders {
+  order_number integer [primary key]
+  order_date varchar
+  required_date varchar
+  shipped_date varchar
+  status varchar
+  comments varchar
+  customer_number integer
+}
+
+Table payments {
+  customer_number integer [primary key]
+  check_number varchar
+  payment_date varchar
+  amount float
+}
+
+Table product_lines {
+  product_line varchar [primary key]
+  text_description varchar
+  html_description varchar
+  image varchar
+}
+
+Table products {
+  product_code varchar [primary key]
+  product_name varchar
+  product_line varchar
+  product_scale varchar
+  product_vendor varchar
+  product_description varchar
+  quantity_in_stock integer
+  buy_price float
+  msrp float
+}
+
+
+Ref: customers.phone < offices.phone
+Ref: customers.address_line1 < offices.address_line1
+Ref: customers.address_line2 < offices.address_line2
+Ref: customers.city < offices.city
+Ref: customers.state < offices.state
+Ref: customers.postal_code < offices.postal_code
+Ref: customers.country < offices.country
+Ref: customers.customer_number < orders.customer_number
+Ref: customers.customer_number < payments.customer_number
+Ref: employees.office_code < offices.office_code
+Ref: orderdetails.order_number < orders.order_number
+Ref: orderdetails.product_code < products.product_code
+Ref: orders.customer_number < payments.customer_number
+Ref: product_lines.product_line < products.product_line
