@@ -1,4 +1,6 @@
-# README - Processo de ETL e Análise de Dados
+# Processo de ETL e Análise de Dados de Ecommerce
+
+![Diagrama de Entidade e Relacionamento](ER.png)
 
 Este repositório contém um código que realiza um processo de ETL (Extração, Transformação e Carregamento) e conduz análises de dados usando o framework PySpark. O código lê dados de um banco de dados PostgreSQL, salva tabelas selecionadas como arquivos Parquet e, em seguida, realiza várias tarefas de análise de dados. Abaixo está uma visão geral do processo e das análises executadas no código.
 
